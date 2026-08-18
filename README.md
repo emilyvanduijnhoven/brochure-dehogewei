@@ -23,14 +23,16 @@ index.html          de brochure — open in de browser
 build/pdf.mjs       exporteert index.html naar PDF
 export/             de gegenereerde PDF
 assets/             al het beeldmateriaal (zie assets/README.md)
-docs/huisstijl/     huisstijlhandboek, kleuren, fonts
+brandguide/         merkrichtlijnen: handboek, logo, kleuren, typografie, beeldtaal, tone of voice
 docs/referentie/    brochures fase A en B ter vergelijking
 ```
 
 ## Waar upload ik mijn materiaal?
 
-Zie **[`assets/README.md`](assets/README.md)** — daar staat per map wat erin
-hoort, welk bestandsformaat en hoe je bestanden noemt.
+Beeld dat in de opmaak komt gaat naar `assets/`, richtlijnen naar `brandguide/`.
+Zie **[`assets/README.md`](assets/README.md)** en
+**[`brandguide/README.md`](brandguide/README.md)** — daar staat per map wat
+erin hoort, welk bestandsformaat en hoe je bestanden noemt.
 
 Kort:
 
@@ -40,7 +42,7 @@ Kort:
 - plattegronden en tekeningen → `assets/tekeningen/`
 - illustraties en patronen → `assets/illustraties/`
 - fonts → `assets/fonts/`
-- huisstijlhandboek → `docs/huisstijl/`
+- merkrichtlijnen (handboek, logo, kleuren, typografie, beeldtaal, tone of voice) → `brandguide/`
 - brochures fase A en B → `docs/referentie/`
 
 Uploaden kan in GitHub via **Add file → Upload files** in de betreffende map.

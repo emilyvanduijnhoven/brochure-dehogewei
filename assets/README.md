@@ -1,6 +1,8 @@
 # Waar upload ik wat?
 
-Alles wat de brochure nodig heeft staat in deze map. Sleep bestanden in GitHub
+Hier staat het **beeldmateriaal dat in de opmaak terechtkomt**. De
+*richtlijnen* over hoe dat materiaal gebruikt wordt staan in
+[`brandguide/`](../brandguide/README.md). Sleep bestanden in GitHub
 naar de juiste submap (**Add file → Upload files**) of upload ze via de
 GitHub-webinterface direct in de map.
 
@@ -12,7 +14,7 @@ GitHub-webinterface direct in de map.
 | `assets/tekeningen/` | Situatietekening, indelingsplattegronden, gevelaanzichten, parkeer-/bergingtekening | PDF of SVG (vector), anders PNG 600 dpi |
 | `assets/illustraties/` | Botanische fruit-illustraties, patronen, iconen uit het bestaande merkmateriaal | SVG of PNG met transparantie |
 | `assets/fonts/` | De merkfonts als webfont (`.woff2`) **en** als OTF/TTF voor de designer | woff2 + otf/ttf |
-| `docs/huisstijl/` | Huisstijlhandboek, kleurenkaart, logo-richtlijnen (pdf) | PDF |
+| `brandguide/` | Huisstijlhandboek, logo-, kleur-, typografie- en beeldrichtlijnen — zie [brandguide/README.md](../brandguide/README.md) | PDF / MD |
 | `docs/referentie/` | Brochures fase A en fase B als referentie | PDF |
 
 ## Naamgeving
