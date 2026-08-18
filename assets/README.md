@@ -30,6 +30,15 @@ plattegrond-appartement-type-a.pdf
 Zet er bij renders/foto's `-liggend` of `-staand` achter als het uitmaakt voor
 de plek in de opmaak.
 
+## Afgeleide bestanden
+
+`assets/logos/Logo creme-2500px.png` is niet aangeleverd maar afgeleid van
+`Logo bruin-2500px.png`: hetzelfde bestand met het kleurenpalet omgezet naar
+crème `#F3ECDD`, zodat het logo op de rode pagina's kan staan. De alpha is
+ongewijzigd, dus de vorm is identiek. `Logo wit.png` was hiervoor niet
+bruikbaar: dat bestand heeft geen transparantie en staat op een witte
+achtergrond.
+
 ## Rechten
 
 Zet per map, als dat speelt, een `CREDITS.md` neer met fotograaf/bron en of het

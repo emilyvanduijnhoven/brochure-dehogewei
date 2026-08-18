@@ -53,8 +53,16 @@ npm run pdf          # -> export/de-hoge-wei-fase-c.pdf (met placeholders)
 npm run pdf -- --clean   # zonder placeholder-arcering
 ```
 
-Of open `index.html` in de browser: de balk bovenin heeft knoppen om de
-placeholders te dimmen en om direct naar PDF te printen.
+Of open `index.html` in de browser. De balk bovenin heeft knoppen om de
+placeholders te dimmen, om direct naar PDF te printen, en een zoomregeling —
+die schaalt bij het openen automatisch zodat een hele spread in beeld past.
+De zoom geldt alleen voor het scherm; print en PDF blijven op ware grootte.
+
+## Huisstijl
+
+De merkfonts (Neue Haas Display, Calluna Italic, Filmotype LaCrosse) en het
+logo zijn ingebouwd. Zie [`docs/huisstijl/README.md`](docs/huisstijl/README.md)
+voor de rolverdeling per font en de openstaande vraag over de merkkleur.
 
 ## Placeholders
 

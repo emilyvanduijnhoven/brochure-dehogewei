@@ -4,10 +4,33 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>De Hoge Wei — Verkoopfase C — brochure template (240 × 330 mm)</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,700;6..96,800;6..96,900&family=Jost:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
+/* ---------- merkfonts ---------- */
+@font-face{font-family:'Neue Haas Display';font-weight:300;font-style:normal;
+  src:url('assets/fonts/NeueHaasDisplayLight.ttf') format('truetype')}
+@font-face{font-family:'Neue Haas Display';font-weight:300;font-style:italic;
+  src:url('assets/fonts/NeueHaasDisplayLightItalic.ttf') format('truetype')}
+@font-face{font-family:'Neue Haas Display';font-weight:400;font-style:normal;
+  src:url('assets/fonts/NeueHaasDisplayRoman.ttf') format('truetype')}
+@font-face{font-family:'Neue Haas Display';font-weight:400;font-style:italic;
+  src:url('assets/fonts/NeueHaasDisplayRomanItalic.ttf') format('truetype')}
+@font-face{font-family:'Neue Haas Display';font-weight:500;font-style:normal;
+  src:url('assets/fonts/NeueHaasDisplayMediu.ttf') format('truetype')}
+@font-face{font-family:'Neue Haas Display';font-weight:500;font-style:italic;
+  src:url('assets/fonts/NeueHaasDisplayMediumItalic.ttf') format('truetype')}
+@font-face{font-family:'Neue Haas Display';font-weight:700;font-style:normal;
+  src:url('assets/fonts/NeueHaasDisplayBold.ttf') format('truetype')}
+@font-face{font-family:'Neue Haas Display';font-weight:700;font-style:italic;
+  src:url('assets/fonts/NeueHaasDisplayBoldItalic.ttf') format('truetype')}
+@font-face{font-family:'Neue Haas Display';font-weight:900;font-style:normal;
+  src:url('assets/fonts/NeueHaasDisplayBlack.ttf') format('truetype')}
+@font-face{font-family:'Neue Haas Display';font-weight:900;font-style:italic;
+  src:url('assets/fonts/NeueHaasDisplayBlackItalic.ttf') format('truetype')}
+@font-face{font-family:'Calluna';font-weight:400;font-style:italic;
+  src:url('assets/fonts/Calluna%20Italic.otf') format('opentype')}
+@font-face{font-family:'Filmotype LaCrosse';font-weight:400;font-style:normal;
+  src:url('assets/fonts/filmotype_lacrosse.otf') format('opentype')}
+
 :root{
   --rood:#5A1319;
   --rood-diep:#480F14;
@@ -18,10 +41,14 @@
   --blauw:#BEE1F2;
   --wit:#ffffff;
   --pad:18mm;
+  --display:'Neue Haas Display',system-ui,sans-serif;
+  --tekst:'Neue Haas Display',system-ui,sans-serif;
+  --serif:'Calluna','Neue Haas Display',serif;
+  --script:'Filmotype LaCrosse',cursive;
 }
 *{box-sizing:border-box}
 html{background:#8f8f8f}
-body{margin:0;font-family:'Jost',system-ui,sans-serif;color:var(--rood);-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:var(--tekst);font-weight:400;color:var(--rood);-webkit-font-smoothing:antialiased}
 
 /* ---------- toolbar (alleen scherm) ---------- */
 .bar{position:fixed;top:0;left:0;right:0;z-index:99;background:var(--rood);color:var(--creme);
@@ -32,6 +59,10 @@ body{margin:0;font-family:'Jost',system-ui,sans-serif;color:var(--rood);-webkit-
 .bar button:hover{background:#c9420f}
 .bar .sp{margin-left:auto;opacity:.7;font-size:11px}
 .wrap{padding:60px 20px 80px}
+@media screen{.wrap{zoom:var(--zoom,1)}}
+.bar .zoom{display:flex;gap:6px;align-items:center}
+.bar .zoom output{min-width:38px;text-align:right;font-variant-numeric:tabular-nums;opacity:.85}
+.bar input[type=range]{width:120px;accent-color:var(--oranje)}
 
 /* ---------- spreads / pagina's ---------- */
 .spread,.single{background:var(--creme);margin:0 auto 24px;position:relative;overflow:hidden;
@@ -50,21 +81,21 @@ body{margin:0;font-family:'Jost',system-ui,sans-serif;color:var(--rood);-webkit-
 .gutter{position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(90,19,25,.12);z-index:5}
 
 /* folio */
-.folio{position:absolute;bottom:9mm;font-family:'Bodoni Moda',serif;font-size:11pt}
+.folio{position:absolute;bottom:9mm;font-family:var(--display);font-weight:500;font-size:10pt;letter-spacing:.04em}
 .pg:nth-child(odd) .folio{left:var(--pad)}
 .pg:nth-child(even) .folio{right:var(--pad)}
 
 /* ---------- typografie ---------- */
-.eyebrow{font-family:'Bodoni Moda',serif;font-weight:700;font-size:9pt;letter-spacing:.18em;
+.eyebrow{font-family:var(--display);font-weight:700;font-size:8.5pt;letter-spacing:.18em;
   text-transform:uppercase;margin:0 0 6mm}
-h1{font-family:'Bodoni Moda',serif;font-weight:800;font-size:38pt;line-height:1.02;margin:0 0 8mm}
-h2{font-family:'Bodoni Moda',serif;font-weight:800;font-size:27pt;line-height:1.05;margin:0 0 6mm}
-h3{font-family:'Jost',sans-serif;font-weight:600;font-size:10pt;letter-spacing:.09em;
+h1{font-family:var(--display);font-weight:900;font-size:31pt;line-height:1.03;letter-spacing:-.022em;margin:0 0 8mm}
+h2{font-family:var(--display);font-weight:900;font-size:22pt;line-height:1.06;letter-spacing:-.018em;margin:0 0 6mm}
+h3{font-family:var(--display);font-weight:700;font-size:9pt;letter-spacing:.09em;
   text-transform:uppercase;margin:0 0 3mm}
-h4{font-family:'Jost',sans-serif;font-weight:600;font-size:9.5pt;margin:0 0 2mm;color:var(--oranje)}
+h4{font-family:var(--display);font-weight:700;font-size:9pt;margin:0 0 2mm;color:var(--oranje)}
 p{font-size:8.6pt;line-height:1.55;margin:0 0 4mm;max-width:88mm}
-p.lead{font-weight:500}
-.quote{font-family:'Pinyon Script',cursive;font-size:22pt;line-height:1.5;margin:8mm 0 0}
+p.lead{font-family:var(--serif);font-style:italic;font-weight:400;font-size:9.6pt;line-height:1.5}
+.quote{font-family:var(--script);font-size:25pt;line-height:1.28;margin:8mm 0 0}
 .oranje{color:var(--oranje)}
 .hr{height:1px;background:currentColor;opacity:.35;margin:5mm 0}
 
@@ -73,9 +104,9 @@ p.lead{font-weight:500}
   repeating-linear-gradient(45deg,rgba(233,84,31,.05) 0 8px,transparent 8px 16px);
   display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
   color:var(--oranje);padding:6mm;border-radius:2px}
-.ph::before{content:attr(data-label);font-family:'Jost',sans-serif;font-weight:600;font-size:8.5pt;
+.ph::before{content:attr(data-label);font-family:var(--display);font-weight:700;font-size:8.5pt;
   letter-spacing:.1em;text-transform:uppercase}
-.ph::after{content:attr(data-hint);font-family:'Jost',sans-serif;font-weight:400;font-size:7.5pt;
+.ph::after{content:attr(data-hint);font-family:var(--display);font-weight:400;font-size:7.5pt;
   letter-spacing:.02em;opacity:.75;margin-top:2mm;max-width:70%}
 .ph.dark{border-color:var(--creme);color:var(--creme);
   background:repeating-linear-gradient(45deg,rgba(243,236,221,.07) 0 8px,transparent 8px 16px)}
@@ -92,7 +123,7 @@ body.clean .ph{background:none;border-color:rgba(90,19,25,.25);color:rgba(90,19,
 /* ---------- onderdelen ---------- */
 .toc{list-style:none;margin:0;padding:0;width:100%}
 .toc li{display:flex;justify-content:space-between;align-items:baseline;
-  font-family:'Bodoni Moda',serif;font-weight:700;font-size:13pt;
+  font-family:var(--display);font-weight:500;font-size:12pt;letter-spacing:-.01em;
   padding:3.4mm 0;border-bottom:1px solid rgba(243,236,221,.45)}
 .toc li:first-child{border-top:1px solid rgba(243,236,221,.45)}
 
@@ -118,9 +149,11 @@ ul.kenmerken li{margin-bottom:1.5mm}
   text-transform:uppercase;padding:2px 10px;border-radius:20px;white-space:nowrap}
 body.clean .note{display:none}
 
-.logo{font-family:'Bodoni Moda',serif;font-weight:900;font-size:34pt;line-height:.92;text-align:center}
-.logo em{display:block;font-family:'Pinyon Script',cursive;font-weight:400;font-size:20pt;
-  font-style:normal;margin-bottom:-6pt}
+/* Logo als transparante PNG. De cremeversie staat op de rode pagina's,
+   .logo.bruin is voor een lichte ondergrond. */
+.logo{width:56mm;aspect-ratio:2500/2432;
+  background:url('assets/logos/Logo creme-2500px.png') center/contain no-repeat}
+.logo.bruin{background-image:url('assets/logos/Logo bruin-2500px.png')}
 .pill{display:inline-block;background:var(--oranje);color:#fff;border-radius:30px;
   padding:4mm 10mm;font-weight:600;font-size:11pt;letter-spacing:.02em}
 
@@ -142,6 +175,13 @@ body.clean .note{display:none}
   <span>brochure template · 240 × 330 mm (staand) · spread 480 × 330 mm</span>
   <button onclick="document.body.classList.toggle('clean')">Placeholders dimmen</button>
   <button onclick="window.print()">Print / PDF</button>
+  <span class="zoom">
+    <button onclick="zoom(-.1)">&minus;</button>
+    <input type="range" min="15" max="150" step="1" id="zr" oninput="setZoom(this.value/100)">
+    <button onclick="zoom(.1)">+</button>
+    <button onclick="fit()">Passend</button>
+    <output id="zo"></output>
+  </span>
   <span class="sp">Opbouw overgenomen van fase A &amp; B · voorbeeldbrochure voor nabouw in InDesign</span>
 </div>
 
@@ -150,7 +190,7 @@ body.clean .note{display:none}
 <!-- ============ COVER ============ -->
 <section class="single rood">
   <div class="pg" style="justify-content:space-between;align-items:center;text-align:center">
-    <div class="logo" style="margin-top:14mm"><em>De</em>Hoge<br>Wei</div>
+    <div class="logo" role="img" aria-label="De Hoge Wei" style="width:64mm;margin-top:12mm"></div>
     <div class="ph dark" style="width:100%;aspect-ratio:16/9" data-label="Coverrender" data-hint="Exterieurimpressie hoofdgebouw / straatbeeld fase C — liggend 16:9"></div>
     <div style="margin-bottom:14mm">
       <div class="eyebrow" style="margin-bottom:4mm"><span class="fill">[AANTAL]</span> duurzame <span class="fill">[appartementen / woningen]</span></div>
@@ -376,7 +416,7 @@ body.clean .note{display:none}
 <!-- ============ 22–23 LEVEN / SPELEN / ONTMOETEN ============ -->
 <section class="spread">
   <div class="pg rood bleed" style="display:grid;grid-template-columns:3fr 5fr">
-    <div style="display:flex;align-items:center;justify-content:center"><div class="logo"><em>De</em>Hoge<br>Wei</div></div>
+    <div style="display:flex;align-items:center;justify-content:center"><div class="logo" role="img" aria-label="De Hoge Wei" style="width:42mm"></div></div>
     <div class="ph dark" style="border-radius:0" data-label="Sfeerbeeld" data-hint="Staand — gezin in het veld"></div>
     <span class="folio">22</span>
   </div>
@@ -777,7 +817,7 @@ body.clean .note{display:none}
 <!-- ============ ACHTERKANT ============ -->
 <section class="single rood">
   <div class="pg" style="justify-content:center;align-items:center;text-align:center">
-    <div class="logo" style="margin-top:auto;margin-bottom:auto"><em>De</em>Hoge<br>Wei</div>
+    <div class="logo" role="img" aria-label="De Hoge Wei" style="width:52mm;margin-top:auto;margin-bottom:auto"></div>
     <div style="margin-bottom:16mm">
       <div class="eyebrow" style="color:var(--oranje);margin-bottom:4mm">Meer informatie?</div>
       <span class="pill">dehogewei.nl</span>
@@ -786,5 +826,25 @@ body.clean .note{display:none}
 </section>
 
 </div>
+
+<script>
+// Alleen voor het scherm: een spread is 480 mm breed en past zonder zoom op
+// vrijwel geen enkel beeldscherm. Print en PDF blijven op ware grootte.
+const SPREAD_MM = 480, MM = 96 / 25.4;
+function setZoom(z){
+  z = Math.min(1.5, Math.max(.15, z));
+  document.body.style.setProperty('--zoom', z);
+  document.getElementById('zr').value = Math.round(z * 100);
+  document.getElementById('zo').textContent = Math.round(z * 100) + '%';
+}
+function zoom(d){
+  setZoom(parseFloat(getComputedStyle(document.body).getPropertyValue('--zoom') || 1) + d);
+  sessionStorage.handmatig = 1;
+}
+function fit(){ setZoom((window.innerWidth - 48) / (SPREAD_MM * MM)); }
+fit();
+addEventListener('resize', () => { if (!sessionStorage.handmatig) fit(); });
+document.getElementById('zr').addEventListener('input', () => sessionStorage.handmatig = 1);
+</script>
 </body>
 </html>
