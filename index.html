@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>De Hoge Wei — Verkoopfase C — brochure template (240 × 330 mm)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,700;6..96,800;6..96,900&family=Jost:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rood:#5A1319;
+  --rood-diep:#480F14;
+  --lime:#C9D75F;
+  --perzik:#F8B87F;
+  --oranje:#E9541F;
+  --creme:#F3ECDD;
+  --blauw:#BEE1F2;
+  --wit:#ffffff;
+  --pad:18mm;
+}
+*{box-sizing:border-box}
+html{background:#8f8f8f}
+body{margin:0;font-family:'Jost',system-ui,sans-serif;color:var(--rood);-webkit-font-smoothing:antialiased}
+
+/* ---------- toolbar (alleen scherm) ---------- */
+.bar{position:fixed;top:0;left:0;right:0;z-index:99;background:var(--rood);color:var(--creme);
+  display:flex;gap:14px;align-items:center;padding:8px 16px;font-size:13px;letter-spacing:.02em}
+.bar b{font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:11px}
+.bar button{font:inherit;font-size:12px;background:var(--oranje);color:#fff;border:0;border-radius:20px;
+  padding:5px 14px;cursor:pointer}
+.bar button:hover{background:#c9420f}
+.bar .sp{margin-left:auto;opacity:.7;font-size:11px}
+.wrap{padding:60px 20px 80px}
+
+/* ---------- spreads / pagina's ---------- */
+.spread,.single{background:var(--creme);margin:0 auto 24px;position:relative;overflow:hidden;
+  box-shadow:0 6px 28px rgba(0,0,0,.35)}
+.spread{width:480mm;height:330mm;display:grid;grid-template-columns:1fr 1fr}
+.single{width:240mm;height:330mm}
+.pg{position:relative;overflow:hidden;padding:var(--pad);display:flex;flex-direction:column}
+.single .pg{height:100%}
+.pg.bleed{padding:0}
+.rood{background:var(--rood);color:var(--creme)}
+.rood .eyebrow,.rood h1,.rood h2,.rood h3,.rood .quote{color:var(--creme)}
+.limebg{background:var(--lime)}
+.perzikbg{background:var(--perzik)}
+.blauwbg{background:var(--blauw)}
+.cremebg{background:var(--creme)}
+.gutter{position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(90,19,25,.12);z-index:5}
+
+/* folio */
+.folio{position:absolute;bottom:9mm;font-family:'Bodoni Moda',serif;font-size:11pt}
+.pg:nth-child(odd) .folio{left:var(--pad)}
+.pg:nth-child(even) .folio{right:var(--pad)}
+
+/* ---------- typografie ---------- */
+.eyebrow{font-family:'Bodoni Moda',serif;font-weight:700;font-size:9pt;letter-spacing:.18em;
+  text-transform:uppercase;margin:0 0 6mm}
+h1{font-family:'Bodoni Moda',serif;font-weight:800;font-size:38pt;line-height:1.02;margin:0 0 8mm}
+h2{font-family:'Bodoni Moda',serif;font-weight:800;font-size:27pt;line-height:1.05;margin:0 0 6mm}
+h3{font-family:'Jost',sans-serif;font-weight:600;font-size:10pt;letter-spacing:.09em;
+  text-transform:uppercase;margin:0 0 3mm}
+h4{font-family:'Jost',sans-serif;font-weight:600;font-size:9.5pt;margin:0 0 2mm;color:var(--oranje)}
+p{font-size:8.6pt;line-height:1.55;margin:0 0 4mm;max-width:88mm}
+p.lead{font-weight:500}
+.quote{font-family:'Pinyon Script',cursive;font-size:22pt;line-height:1.5;margin:8mm 0 0}
+.oranje{color:var(--oranje)}
+.hr{height:1px;background:currentColor;opacity:.35;margin:5mm 0}
+
+/* ---------- placeholders ---------- */
+.ph{position:relative;border:1.5px dashed var(--oranje);background:
+  repeating-linear-gradient(45deg,rgba(233,84,31,.05) 0 8px,transparent 8px 16px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  color:var(--oranje);padding:6mm;border-radius:2px}
+.ph::before{content:attr(data-label);font-family:'Jost',sans-serif;font-weight:600;font-size:8.5pt;
+  letter-spacing:.1em;text-transform:uppercase}
+.ph::after{content:attr(data-hint);font-family:'Jost',sans-serif;font-weight:400;font-size:7.5pt;
+  letter-spacing:.02em;opacity:.75;margin-top:2mm;max-width:70%}
+.ph.dark{border-color:var(--creme);color:var(--creme);
+  background:repeating-linear-gradient(45deg,rgba(243,236,221,.07) 0 8px,transparent 8px 16px)}
+.ph.grow{flex:1}
+.ph.full{position:absolute;inset:0;border-radius:0}
+.ph.inset{position:absolute;inset:11mm;border-radius:0}
+
+/* invulvelden */
+.fill{background:rgba(233,84,31,.16);box-shadow:0 0 0 1px rgba(233,84,31,.35);
+  border-radius:2px;padding:0 3px;font-weight:500;white-space:nowrap}
+body.clean .fill{background:none;box-shadow:none}
+body.clean .ph{background:none;border-color:rgba(90,19,25,.25);color:rgba(90,19,25,.5)}
+
+/* ---------- onderdelen ---------- */
+.toc{list-style:none;margin:0;padding:0;width:100%}
+.toc li{display:flex;justify-content:space-between;align-items:baseline;
+  font-family:'Bodoni Moda',serif;font-weight:700;font-size:13pt;
+  padding:3.4mm 0;border-bottom:1px solid rgba(243,236,221,.45)}
+.toc li:first-child{border-top:1px solid rgba(243,236,221,.45)}
+
+.mosaic{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr 1fr}
+.mosaic > *{padding:10mm;display:flex;flex-direction:column;justify-content:center}
+.mosaic .ph{border-radius:0;margin:0}
+
+.spec{width:100%;border-collapse:collapse;font-size:8.4pt;margin-bottom:5mm}
+.spec th,.spec td{text-align:left;padding:2.2mm 0;border-bottom:1px solid rgba(90,19,25,.25)}
+.spec td:last-child{text-align:right}
+.spec tr:first-child th{color:var(--oranje);font-weight:600;border-bottom:1px solid var(--oranje)}
+ul.kenmerken{margin:0 0 5mm;padding-left:4mm;font-size:8.4pt;line-height:1.5}
+ul.kenmerken li{margin-bottom:1.5mm}
+
+.logos{display:flex;gap:8mm;align-items:center;justify-content:center;flex-wrap:wrap;margin:4mm 0}
+.logos .ph{width:44mm;height:16mm;padding:2mm}
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:8mm;text-align:center;font-size:8pt;line-height:1.5}
+.contact b{display:block;margin-bottom:1.5mm}
+.disclaimer{font-size:5.6pt;line-height:1.45;max-width:none;opacity:.9}
+
+.note{position:absolute;top:4mm;left:50%;transform:translateX(-50%);z-index:6;
+  background:var(--oranje);color:#fff;font-size:7pt;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;padding:2px 10px;border-radius:20px;white-space:nowrap}
+body.clean .note{display:none}
+
+.logo{font-family:'Bodoni Moda',serif;font-weight:900;font-size:34pt;line-height:.92;text-align:center}
+.logo em{display:block;font-family:'Pinyon Script',cursive;font-weight:400;font-size:20pt;
+  font-style:normal;margin-bottom:-6pt}
+.pill{display:inline-block;background:var(--oranje);color:#fff;border-radius:30px;
+  padding:4mm 10mm;font-weight:600;font-size:11pt;letter-spacing:.02em}
+
+/* ---------- print ---------- */
+@page{size:480mm 330mm;margin:0}
+@media print{
+  html{background:#fff}
+  .bar,.wrap{padding:0}
+  .bar{display:none}
+  .spread,.single{margin:0 auto;box-shadow:none;break-after:page;page-break-after:always}
+  .note{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <b>De Hoge Wei — Verkoopfase C</b>
+  <span>brochure template · 240 × 330 mm (staand) · spread 480 × 330 mm</span>
+  <button onclick="document.body.classList.toggle('clean')">Placeholders dimmen</button>
+  <button onclick="window.print()">Print / PDF</button>
+  <span class="sp">Opbouw overgenomen van fase A &amp; B · voorbeeldbrochure voor nabouw in InDesign</span>
+</div>
+
+<div class="wrap">
+
+<!-- ============ COVER ============ -->
+<section class="single rood">
+  <div class="pg" style="justify-content:space-between;align-items:center;text-align:center">
+    <div class="logo" style="margin-top:14mm"><em>De</em>Hoge<br>Wei</div>
+    <div class="ph dark" style="width:100%;aspect-ratio:16/9" data-label="Coverrender" data-hint="Exterieurimpressie hoofdgebouw / straatbeeld fase C — liggend 16:9"></div>
+    <div style="margin-bottom:14mm">
+      <div class="eyebrow" style="margin-bottom:4mm"><span class="fill">[AANTAL]</span> duurzame <span class="fill">[appartementen / woningen]</span></div>
+      <h1 style="font-size:34pt;margin:0 0 4mm">Verkoopfase C</h1>
+      <div style="font-family:'Jost';font-weight:600;font-size:10pt;letter-spacing:.14em"><span class="fill">[GEBOUW-/BUURTNAAM]</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2–3 INTRODUCTIE ============ -->
+<section class="spread"><div class="gutter"></div>
+  <div class="pg limebg bleed">
+    <div class="ph inset" data-label="Sfeerbeeld" data-hint="Staand — gezin / buitenleven Betuwe"></div>
+    <span class="folio">2</span>
+  </div>
+  <div class="pg limebg" style="justify-content:center;align-items:flex-end;text-align:right">
+    <div style="max-width:100mm">
+      <div class="eyebrow">Introductie</div>
+      <h1>Een frisse start in een nieuwe wijk!</h1>
+      <p class="lead" style="margin-left:auto">Aan de rand van Kesteren, het mooie dorp in de Betuwe, ontstaat een nieuwe wijk voor jong en oud: De Hoge Wei. De combinatie van <span class="fill">[AANTAL]</span> appartementen en <span class="fill">[AANTAL]</span> grondgebonden woningen, een kerk en een basisschool biedt een unieke woonkans aan iedereen die van levendigheid en ruimte houdt. Het is de ideale plek om samen te leven, lekker buiten te spelen en elkaar te ontmoeten.</p>
+      <p style="margin-left:auto">Deze fijne woonwijk is een waardevolle toevoeging aan het toch al zo gezellige dorp. Kesteren kent een mooie mix van traditie en eigentijdse voorzieningen, en is vanwege haar ligging in het rivierengebied omgeven door natuur en water. Wie erop uit wil met het gezin, komt hier volop aan zijn trekken. Wie liever thuis blijft trouwens ook, want daar geniet u van een comfortabele woning in een nieuwe, frisse wijk. Wat u ook wenst en hoe u ook leeft: uw toekomst begint hier.</p>
+      <div class="quote">‘Dit is de ideale plek om vrij te leven,<br>lekker buiten te spelen en elkaar te ontmoeten.’</div>
+    </div>
+    <span class="folio">3</span>
+  </div>
+</section>
+
+<!-- ============ 4–5 INHOUDSOPGAVE ============ -->
+<section class="spread"><div class="gutter"></div>
+  <div class="pg rood bleed">
+    <div class="ph dark" style="position:absolute;inset:14mm 0 22mm 0;border-left:0" data-label="Sfeerbeeld" data-hint="Portret / boomgaard — doorlopend tot de rand"></div>
+    <span class="folio">4</span>
+  </div>
+  <div class="pg rood" style="justify-content:center">
+    <div class="eyebrow" style="text-align:right">Inhoudsopgave</div>
+    <ul class="toc">
+      <li><span>Introductie</span><span>02</span></li>
+      <li><span>Inhoudsopgave</span><span>04</span></li>
+      <li><span>Welkom in Kesteren</span><span>08</span></li>
+      <li><span>Locatie</span><span>10</span></li>
+      <li><span>De omgeving</span><span>12</span></li>
+      <li><span>Leven in De Hoge Wei</span><span>16</span></li>
+      <li><span>De ontwikkelaars</span><span>24</span></li>
+      <li><span>De architect</span><span>32</span></li>
+      <li><span>De woningen</span><span>34</span></li>
+      <li><span>Duurzaam</span><span class="fill">00</span></li>
+      <li><span>Keukens</span><span class="fill">00</span></li>
+      <li><span>Sanitair</span><span class="fill">00</span></li>
+      <li><span>Colofon</span><span class="fill">00</span></li>
+    </ul>
+    <span class="folio">5</span>
+  </div>
+</section>
+
+<!-- ============ 6–7 DUBBELPAGINA RENDER ============ -->
+<section class="spread perzikbg">
+  <div class="note">Dubbelpagina beeld — over de bladspiegel heen</div>
+  <div class="pg bleed" style="grid-column:1 / -1">
+    <div class="ph inset" data-label="Exterieurimpressie" data-hint="Liggend, doorlopend over beide pagina's — hoofdbeeld fase C"></div>
+    <span class="folio" style="left:var(--pad)">6</span><span class="folio" style="right:var(--pad)">7</span>
+  </div>
+</section>
+
+<!-- ============ 8–9 OVER KESTEREN ============ -->
+<section class="spread"><div class="gutter"></div>
+  <div class="pg cremebg" style="justify-content:center">
+    <div class="eyebrow">Over Kesteren</div>
+    <h1>Een bloeiende gemeenschap</h1>
+    <p style="font-weight:500;margin-bottom:8mm">Kesteren groeit mee met de tijd</p>
+    <p class="lead">Kesteren heeft van oudsher een bloeiende gemeenschap, die een grote aantrekkingskracht uitoefent op mensen die zich hier graag willen vestigen. Het ligt midden in het karakteristieke rivierengebied, in het noorden begrensd door de Nederrijn en in het zuiden door de Waal. Meer dan 2000 jaar geleden sloegen de Romeinen hier al hun kampen op, en sindsdien heeft het dorp succesvol meebewogen met de tijd. Tegenwoordig is het een echte groeigemeente, met veel nieuwe bewoners die de veelzijdigheid en het woongenot van dit dorp (her)ontdekken.</p>
+    <div class="quote">‘Kesteren heeft van oudsher<br>een bloeiende gemeenschap.’</div>
+    <span class="folio">8</span>
+  </div>
+  <div class="pg bleed">
+    <div class="mosaic">
+      <div class="ph" data-label="Beeld" data-hint="Kerk / dorpsgezicht Kesteren"></div>
+      <div class="limebg">
+        <h3>Alles dichtbij</h3>
+        <p>In het dorp is alles dichtbij. Er zijn scholen voor het basis- en voortgezet onderwijs, actieve verenigingen op het gebied van sport en cultuur, diverse kerkgenootschappen, medische voorzieningen, horeca, een supermarkt en leuke lokale winkels voor de dagelijkse benodigdheden. Daarmee biedt Kesteren een rijk sociaal leven aan jong en oud, gewoon binnen zijn dorpsgrenzen!</p>
+      </div>
+      <div class="rood">
+        <h3>Schitterende natuur</h3>
+        <p>Iedereen kent natuurlijk de vele appel-, peren- en kersenbomen die hier bloeien, maar de Betuwe heeft zoveel meer te bieden dan fruitbomen alleen. Het rivierengebied staat ook bekend om het heerlijke buitenleven en de veelzijdige natuur. Fietsend over de dijken kijk je uit over het traag stromende water van de meanderende Rijn. Je wandelt langs de uiterwaarden, door het griendbos en over de hei. Je bewondert kastelen en bezoekt oude forten van de Nieuwe Hollandse Waterlinie.</p>
+      </div>
+      <div class="ph" data-label="Beeld" data-hint="Uiterwaarden / rivierengebied"></div>
+      <div class="perzikbg" style="grid-column:1 / -1">
+        <h3>Castra Carvo</h3>
+        <p>De naam Kesteren is waarschijnlijk een verbastering van het Romeinse woord castra, waarmee een legerplaats werd aangeduid. De naam van deze castra was waarschijnlijk Carvo of Carvone. Deze versterkingen waren onderdeel van de limes, de noordelijke begrenzing van het Romeinse Rijk in deze streek. Sporen van deze oude nederzettingen zijn bijvoorbeeld teruggevonden aan de Nedereindsestraat in Kesteren.</p>
+      </div>
+    </div>
+    <span class="folio">9</span>
+  </div>
+</section>
+
+<!-- ============ 10–11 LOCATIE ============ -->
+<section class="spread limebg"><div class="gutter"></div>
+  <div class="pg" style="grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:12mm;align-content:center">
+    <div>
+      <div class="quote" style="font-size:20pt;margin:0 0 2mm">Centrale ligging</div>
+      <h1>Tussen dorpen en steden</h1>
+      <div class="ph" style="aspect-ratio:16/10;margin-top:6mm" data-label="Kaart" data-hint="Regiokaart met locatiepin De Hoge Wei — bestaand bestand hergebruiken"></div>
+    </div>
+    <div style="align-self:end;padding-bottom:20mm">
+      <p class="lead">Kesteren is het grootste dorp van de gemeente Neder-Betuwe, waartoe ook Dodewaard, Echteld, IJzendoorn, Ochten en Opheusden behoren. Op <span class="fill">[DATUM]</span> telde het dorp <span class="fill">[AANTAL]</span> inwoners en dit aantal groeit, mede door de ontwikkeling van hoogwaardige nieuwbouwprojecten.</p>
+      <p>Kesteren is goed bereikbaar via de A15 en de N233. Het dorp heeft een eigen treinstation aan de spoorverbinding tussen Tiel en Arnhem. Grote steden als Amersfoort, Arnhem en Nijmegen zijn daardoor snel en gemakkelijk bereikbaar, terwijl ook in de omliggende dorpen genoeg te halen en te beleven valt. Die landelijke charme, gecombineerd met de nabijheid van het stadse leven, maakt van Kesteren een gewilde woonplaats.</p>
+    </div>
+    <span class="folio" style="left:var(--pad)">10</span><span class="folio" style="right:var(--pad)">11</span>
+  </div>
+</section>
+
+<!-- ============ 12–13 DE OMGEVING ============ -->
+<section class="spread"><div class="gutter"></div>
+  <div class="pg cremebg" style="justify-content:center">
+    <div class="eyebrow">De omgeving</div>
+    <h1>Zoveel te doen!</h1>
+    <p class="lead">Kunt u haast niet wachten om in De Hoge Wei het huis van uw dromen te betrekken? Dan dragen we graag alvast een beetje bij aan de voorpret. Hieronder hebben we een aantal highlights verzameld die u in de directe omgeving van De Hoge Wei kunt bezoeken. Een mooie mix van natuur, horeca en bezienswaardigheden, want er is meer dan genoeg te beleven in Kesteren!</p>
+    <div class="quote">‘De Betuwe staat ook bekend om het<br>heerlijke buitenleven en de veelzijdige natuur.’</div>
+    <span class="folio">12</span>
+  </div>
+  <div class="pg bleed">
+    <div class="mosaic">
+      <div class="ph" data-label="Beeld" data-hint="Molen de Zwaluw"></div>
+      <div class="perzikbg">
+        <h3>Molen de Zwaluw</h3>
+        <p>In Kesteren vindt u Molen de Zwaluw, die destijds door de familie Timmer eigenhandig is opgebouwd met oude onderdelen en materialen van een afgedankte molen in Duitsland. Naast de molen vindt u het restaurant, met een gevarieerde menukaart waarop de klassieke pannenkoek uiteraard niet ontbreekt. Op speciale dagen kunt u de molen aan het werk zien en worden er rondleidingen georganiseerd.</p>
+      </div>
+      <div class="rood">
+        <h3>Romeinse wachttoren de Spees</h3>
+        <p>Aan de Rijnbandijk steekt sinds 2016 een Romeinse wachttoren trots boven de dijk uit. Deze replica staat op de limes, de vroegere noordgrens van het Romeinse Rijk. Vanuit de toren heeft u een prachtig uitzicht over de Nederrijn en over het voormalige Fort de Spees.</p>
+      </div>
+      <div class="ph" data-label="Beeld" data-hint="Wachttoren de Spees"></div>
+      <div class="ph" data-label="Beeld" data-hint="Kasteel Landgoed Soelen"></div>
+      <div class="blauwbg">
+        <h3>Het kasteel op Landgoed Soelen</h3>
+        <p>Rondom dit kasteel zijn graanakkers, weilanden en bossen met lange statige lanen te vinden. En fruitboomgaarden natuurlijk, het is hier niet voor niets de Betuwe: mooi in alle jaargetijden, maar echt onweerstaanbaar in het voorjaar als de appel-, peren- en kersenbomen in bloei staan.</p>
+      </div>
+    </div>
+    <span class="folio">13</span>
+  </div>
+</section>
+
+<!-- ============ 14–15 OMGEVING MOZAÏEK ============ -->
+<section class="spread">
+  <div class="note">Mozaïek 3 × 2 per pagina — beeld en tekstvlak wisselen elkaar af</div>
+  <div class="pg bleed">
+    <div class="mosaic">
+      <div class="ph" data-label="Beeld" data-hint="Ouwehands Dierenpark"></div>
+      <div class="blauwbg"><h3>Ouwehands Dierenpark</h3><p>Een dagje uit? Ouwehands Dierenpark in Rhenen trekt jaarlijks duizenden bezoekers. Ook bij slecht weer een uitkomst, want in de grote overdekte speeljungle hoeft niemand zich te vervelen.</p></div>
+      <div class="cremebg"><h3>Brasserie de IJsboetiek</h3><p>Op warme dagen is niets zo lekker als het ambachtelijk schepijs van Brasserie de IJsboetiek, in het hartje van Kesteren. Nog meer trek? Dan blijft u gewoon nog even zitten op het gezellige terras voor de lunch, de borrel of het diner!</p></div>
+      <div class="ph" data-label="Beeld" data-hint="Horeca / ijssalon"></div>
+      <div class="ph" data-label="Beeld" data-hint="Winkelen Kesteren"></div>
+      <div class="rood"><h3>Boodschappen en winkelen</h3><p>In het centrum van Kesteren kunt u prima terecht voor al uw dagelijkse boodschappen, zowel bij de PLUS supermarkt als bij de plaatselijke middenstand. Wilt u toch iets meer keus? Het naburige Rhenen, met leuke winkels en terrassen, ontvangt u graag.</p></div>
+    </div>
+    <span class="folio">14</span>
+  </div>
+  <div class="pg bleed">
+    <div class="mosaic">
+      <div class="ph" data-label="Beeld" data-hint="Cunerakerk Rhenen"></div>
+      <div class="cremebg"><h3>In het spoor van de pelgrims</h3><p>Vanuit de wijde omgeving is de 82 meter hoge toren van de Cunerakerk in Rhenen te zien. In de vroege middeleeuwen was dit stadje een belangrijk bedevaartsoord. De kerk, de toren en het charmante stadje zijn zeker een bezoek waard.</p></div>
+      <div style="background:var(--oranje);color:#fff;text-align:center;align-items:center">
+        <div class="quote" style="color:#fff;font-size:19pt;margin:0">‘De Betuwe staat ook bekend om het heerlijke buitenleven en de veelzijdige natuur.’</div>
+      </div>
+      <div class="ph" data-label="Beeld" data-hint="Generatiebeeld — oma met kleinkind"></div>
+      <div class="ph" data-label="Beeld" data-hint="Uiterwaarden / natuurgebied"></div>
+      <div class="cremebg"><h3>Bossen, heuvels en uiterwaarden</h3><p>In de nabijheid van Kesteren vindt u prachtige natuurgebieden. De Utrechtse Heuvelrug, de Veluwe, de Gelderse Vallei, de Blauwe Kamer: aan bossen, heuvels, uiterwaarden en heide geen gebrek! Door het gebied lopen diverse fiets- en wandelroutes, die u langs de mooiste plekken leiden.</p></div>
+    </div>
+    <span class="folio">15</span>
+  </div>
+</section>
+
+<!-- ============ 16–17 LEVEN IN DE HOGE WEI ============ -->
+<section class="spread"><div class="gutter"></div>
+  <div class="pg cremebg" style="justify-content:center">
+    <div class="eyebrow">Leven in De Hoge Wei</div>
+    <h1>Iedereen is welkom in De Hoge Wei</h1>
+    <p class="lead">In de afgelopen jaren heeft Kesteren een forse uitbreiding doorgemaakt. Er zijn veel nieuwbouwwijken en vrijstaande woningen bijgebouwd, maar toch: De Hoge Wei vormt een klasse apart, zowel in schaal als in variatie. Daardoor voelt iedereen zich hier thuis én welkom, in welke levensfase dan ook.</p>
+    <div class="quote">‘De Hoge Wei is een wijk voor iedereen,<br>van jong tot oud, die in het mooie<br>Kesteren wil wonen.’</div>
+    <span class="folio">16</span>
+  </div>
+  <div class="pg rood bleed" style="padding:0">
+    <div class="ph dark" style="margin:6mm 0 0 -30mm;height:58%;position:relative" data-label="Luchtfoto / vogelvlucht" data-hint="Overzicht plangebied met fase C aangeduid"></div>
+    <div style="padding:10mm var(--pad)">
+      <h3>Maatschappelijk hart</h3>
+      <p style="max-width:none">De Hoge Wei wordt gerealiseerd in de driehoek tussen de Cuneraweg, Rhenenseweg en Betuwestraatweg. In totaal worden hier <span class="fill">[AANTAL]</span> woningen opgeleverd, verdeeld over <span class="fill">[AANTAL]</span> appartementen en <span class="fill">[AANTAL]</span> grondgebonden woningen. De basisschool vormt samen met de kerk het maatschappelijke hart van de wijk. Hier komen bewoners van allerlei generaties samen, en die ontmoeting zet zich voort in de straten en de groene speelplaatsen van De Hoge Wei.</p>
+    </div>
+    <span class="folio">17</span>
+  </div>
+</section>
+
+<!-- ============ 18–19 DUBBELPAGINA RENDER ============ -->
+<section class="spread perzikbg">
+  <div class="note">Dubbelpagina beeld</div>
+  <div class="pg bleed" style="grid-column:1 / -1">
+    <div class="ph inset" data-label="Exterieurimpressie" data-hint="Tweede hoofdbeeld fase C — andere hoek dan cover"></div>
+    <span class="folio" style="left:var(--pad)">18</span><span class="folio" style="right:var(--pad)">19</span>
+  </div>
+</section>
+
+<!-- ============ 20–21 OPZET & ARCHITECTUUR ============ -->
+<section class="spread limebg"><div class="gutter"></div>
+  <div class="pg">
+    <p class="lead" style="max-width:84mm"><b>Buitengevoel</b><br>Het buitengevoel van de Betuwe loopt als een rode draad door deze nieuwe woonwijk heen. Het leidt naar de vele speelplekken in de wijk, waar kinderen gemakkelijk vrienden maken. Het slingert langs tuinen, balkons en buitenruimtes, waar je lekker in het zonnetje een kop koffie drinkt. Of je nu met je gezin verhuist, als starter of als senior, in De Hoge Wei vindt iedereen zijn eigen plek.</p>
+    <div class="quote" style="font-size:19pt">‘De opzet is ruim, met goede parkeervoorzieningen en groene speelplekken verdeeld over de woonwijk.’</div>
+    <div class="ph grow" style="margin-top:8mm" data-label="Beeld" data-hint="Straatbeeld grondgebonden woningen"></div>
+    <h4 style="margin-top:4mm">Ruime, groene opzet</h4>
+    <p style="max-width:none;font-size:8pt">De Hoge Wei wordt ruim opgezet, met goede parkeervoorzieningen en groene speelplekken verdeeld over de wijk. Het gebied is deels omringd door water, waardoor het gevoel ontstaat van een besloten ‘eiland’, dat echter wel uitstekend bereikbaar is.</p>
+    <span class="folio">20</span>
+  </div>
+  <div class="pg" style="display:grid;grid-template-rows:1fr 1fr auto;gap:6mm">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6mm">
+      <div class="ph" data-label="Sfeerbeeld" data-hint="Spelend kind / buitenleven"></div>
+      <div class="ph" data-label="Situatietekening" data-hint="Plankaart met fase C gemarkeerd"></div>
+    </div>
+    <div class="ph" data-label="Exterieurimpressie" data-hint="Appartementengebouw fase C"></div>
+    <div>
+      <h4>Onderscheidende architectuur</h4>
+      <p style="max-width:none;font-size:8pt">De Hoge Wei heeft een charmante uitstraling, die wordt ingegeven door een onderscheidende architectuur die de verschillende woningtypen met elkaar verbindt. Die eenheid zie je bijvoorbeeld terug in de tuitgevels, die zowel in de appartementengebouwen als in de grondgebonden woningen terugkomen. Bij de grondgebonden woningen wordt juist gevarieerd met geveltypen, kleuren en materialen. Dit geeft iedere woning een eigen identiteit, terwijl De Hoge Wei als geheel een herkenbare eenheid vormt.</p>
+    </div>
+    <span class="folio">21</span>
+  </div>
+</section>
+
+<!-- ============ 22–23 LEVEN / SPELEN / ONTMOETEN ============ -->
+<section class="spread">
+  <div class="pg rood bleed" style="display:grid;grid-template-columns:3fr 5fr">
+    <div style="display:flex;align-items:center;justify-content:center"><div class="logo"><em>De</em>Hoge<br>Wei</div></div>
+    <div class="ph dark" style="border-radius:0" data-label="Sfeerbeeld" data-hint="Staand — gezin in het veld"></div>
+    <span class="folio">22</span>
+  </div>
+  <div class="pg bleed">
+    <div class="mosaic" style="grid-template-rows:1fr 1fr">
+      <div class="cremebg" style="align-items:center"><div class="quote" style="font-size:26pt;margin:0">Spelen</div></div>
+      <div class="ph" data-label="Sfeerbeeld" data-hint="Grootouder met kleinkind"></div>
+      <div class="ph" data-label="Sfeerbeeld" data-hint="Spelend kind"></div>
+      <div class="cremebg" style="align-items:center"><div class="quote" style="font-size:26pt;margin:0">Ontmoeten</div></div>
+    </div>
+    <span class="folio">23</span>
+  </div>
+</section>
+
+<!-- ============ 24–25 INTERVIEW 1 ============ -->
+<section class="spread"><div class="gutter"></div>
+  <div class="pg bleed">
+    <div class="ph full" data-label="Interieurimpressie" data-hint="Keuken / woonkamer — paginavullend"></div>
+    <span class="folio">24</span>
+  </div>
+  <div class="pg rood" style="justify-content:flex-start">
+    <div class="eyebrow oranje" style="color:var(--oranje)">Ontwikkelaar: AH projectontwikkeling</div>
+    <h2 style="color:var(--perzik);text-align:right">‘Een mooi plan, dat aan alle kanten passend is’</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6mm;margin-top:4mm">
+      <div>
+        <div class="ph dark" style="aspect-ratio:1/1.15;margin-bottom:3mm" data-label="Portret" data-hint="Hans Reijersen van Buuren"></div>
+        <div style="text-align:center;font-family:'Jost';font-weight:600;font-size:9pt;letter-spacing:.06em">HANS REIJERSEN<br>VAN BUUREN<br><span style="font-size:7pt;opacity:.8">PROJECTONTWIKKELAAR</span></div>
+      </div>
+      <div style="grid-column:2 / -1">
+        <p class="lead oranje" style="max-width:none;font-size:8pt">Hans Reijersen van Buuren is mede-eigenaar van AH projectontwikkeling. Als projectontwikkelaar werkt hij intensief samen met zijn compagnon Anton Mauritz op het gebied van woningbouw, zakelijk vastgoed en de recreatieve sector.</p>
+        <p style="max-width:none;font-size:8pt"><b class="oranje">Passen en meten</b><br><span class="fill">[INTERVIEWTEKST — overnemen uit fase A/B of actualiseren voor fase C]</span></p>
+        <p style="max-width:none;font-size:8pt"><b class="oranje">Creatieve manier van denken</b><br><span class="fill">[TEKST]</span></p>
+        <p style="max-width:none;font-size:8pt"><b class="oranje">Geïntegreerde gebiedsvisie</b><br><span class="fill">[TEKST]</span></p>
+      </div>
+    </div>
+    <span class="folio">25</span>
+  </div>
+</section>
+
+<!-- ============ 26–27 INTERIEURIMPRESSIE ============ -->
+<section class="spread perzikbg">
+  <div class="note">Dubbelpagina beeld</div>
+  <div class="pg bleed" style="grid-column:1 / -1">
+    <div class="ph inset" data-label="Interieurimpressie" data-hint="Woonkamer / eetkamer — doorlopend over beide pagina's"></div>
+    <span class="folio" style="left:var(--pad)">26</span><span class="folio" style="right:var(--pad)">27</span>
+  </div>
+</section>
+
+<!-- ============ 28–29 INTERVIEW 2 ============ -->
+<section class="spread"><div class="gutter"></div>
+  <div class="pg cremebg">
+    <div class="eyebrow oranje">Ontwikkelaar: AH projectontwikkeling</div>
+    <h2 class="oranje">‘Participatie heeft het plan alleen maar versterkt’</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6mm;margin-top:4mm">
+      <div>
+        <div class="ph" style="aspect-ratio:1/1.15;margin-bottom:3mm" data-label="Portret" data-hint="Anton Mauritz"></div>
+        <div style="text-align:center;font-family:'Jost';font-weight:600;font-size:9pt">ANTON MAURITZ<br><span style="font-size:7pt;opacity:.75">ONTWIKKELAAR</span></div>
+        <p class="lead oranje" style="font-size:8pt;margin-top:4mm">Anton Mauritz is één van de initiatiefnemers van De Hoge Wei. Anton wierp zich op als ‘gezicht van het project’, en ging persoonlijk in gesprek met de gemeente en de bewoners van Kesteren.</p>
+      </div>
+      <div>
+        <p style="max-width:none;font-size:8pt"><b class="oranje">Aan de keukentafel</b><br><span class="fill">[INTERVIEWTEKST]</span></p>
+        <p style="max-width:none;font-size:8pt"><b class="oranje">Participatie als geschenk</b><br><span class="fill">[TEKST]</span></p>
+        <p style="max-width:none;font-size:8pt"><b class="oranje">Lokaal en maatschappelijk gedreven</b><br><span class="fill">[TEKST]</span></p>
+      </div>
+    </div>
+    <span class="folio">28</span>
+  </div>
+  <div class="pg bleed">
+    <div class="ph full" data-label="Exterieurimpressie" data-hint="Paginavullend — gebouw fase C"></div>
+    <span class="folio">29</span>
+  </div>
+</section>
+
+<!-- ============ 30–31 INTERVIEW 3 ============ -->
+<section class="spread"><div class="gutter"></div>
+  <div class="pg bleed">
+    <div class="ph full" data-label="Interieurimpressie" data-hint="Woonkamer — paginavullend"></div>
+    <span class="folio">30</span>
+  </div>
+  <div class="pg rood">
+    <div class="eyebrow" style="color:var(--oranje)">Ontwikkelaar en aannemer: JG Timmer</div>
+    <h2 style="color:var(--perzik);text-align:right">‘Er is veel draagvlak om dit voor elkaar te krijgen’</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6mm;margin-top:4mm">
+      <div>
+        <div class="ph dark" style="aspect-ratio:1/1.15;margin-bottom:3mm" data-label="Portret" data-hint="Jan Timmer"></div>
+        <div style="text-align:center;font-family:'Jost';font-weight:600;font-size:9pt">JAN TIMMER<br><span style="font-size:7pt;opacity:.8">ONTWIKKELAAR</span></div>
+      </div>
+      <div style="grid-column:2 / -1">
+        <p class="lead" style="color:var(--oranje);max-width:none;font-size:8pt">JG Timmer is al jaren lang geworteld in de Betuwe. Dankzij die lokale verankering weet eigenaar Jan Timmer goed wat er speelt in het dorp en hoe daaraan een invulling kan worden gegeven.</p>
+        <p style="max-width:none;font-size:8pt"><b class="oranje">Korte doorlooptijd</b><br><span class="fill">[INTERVIEWTEKST]</span></p>
+        <p style="max-width:none;font-size:8pt"><b class="oranje">Bouwen van A tot Z</b><br><span class="fill">[TEKST]</span></p>
+        <p style="max-width:none;font-size:8pt"><b class="oranje">Welkom</b><br><span class="fill">[TEKST — actualiseren met stand van zaken bouw fase C]</span></p>
+      </div>
+    </div>
+    <span class="folio">31</span>
+  </div>
+</section>
+
+<!-- ============ 32–33 DE ARCHITECT ============ -->
+<section class="spread"><div class="gutter"></div>
+  <div class="pg cremebg">
+    <div class="eyebrow" style="color:var(--lime)">De architect: RVB Groep</div>
+    <h2 style="color:var(--lime)">‘We zijn creatief omgesprongen met de ruimte’</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6mm;margin-top:4mm">
+      <div>
+        <div style="font-family:'Jost';font-weight:600;font-size:9pt;margin-bottom:3mm">JONATHAN TEN BOLSCHER<br><span style="font-size:7pt;opacity:.75">HOOFD ONTWERPLEIDER</span></div>
+        <p class="lead" style="font-size:8pt;color:var(--lime)">Jonathan ten Bolscher is ontwerpleider bij RvB Engineering, een ingenieursbureau dat gespecialiseerd is in civiele en bouwkundige werken. Het bedrijf is verantwoordelijk voor de indeling, inrichting en uitstraling van het plan.</p>
+        <p style="max-width:none;font-size:8pt"><b style="color:var(--lime)">Van idee tot plan</b><br><span class="fill">[INTERVIEWTEKST]</span></p>
+      </div>
+      <div>
+        <p style="max-width:none;font-size:8pt"><b style="color:var(--lime)">Mooie, parkachtige omgeving</b><br><span class="fill">[TEKST]</span></p>
+        <p style="max-width:none;font-size:8pt"><b style="color:var(--lime)">Verwantschap in architectuur</b><br><span class="fill">[TEKST]</span></p>
+      </div>
+    </div>
+    <span class="folio">32</span>
+  </div>
+  <div class="pg bleed">
+    <div class="ph full" data-label="Exterieurimpressie" data-hint="Paginavullend — architectuurbeeld fase C"></div>
+    <span class="folio">33</span>
+  </div>
+</section>
+
+<!-- ============ 34–35 VERKOOPFASE C ============ -->
+<section class="spread"><div class="gutter"></div>
+  <div class="pg cremebg" style="justify-content:center;text-align:center;align-items:center">
+    <div class="eyebrow">Verkoopfase C</div>
+    <h1 style="text-align:center"><span class="fill">[AANTAL]</span><br><span class="fill">[woningtype-omschrijving]</span></h1>
+    <p style="max-width:100mm"><b><span class="fill">[Wervende introzin over fase C]</span></b></p>
+    <p style="max-width:100mm"><span class="fill">[Toelichting: ligging binnen het plan, samenstelling van het aanbod, buitenruimtes, parkeren, doelgroep. Zie fase A p.34 en fase B p.34 als voorbeeld.]</span></p>
+    <span class="folio">34</span>
+  </div>
+  <div class="pg rood bleed">
+    <div class="ph dark" style="position:absolute;inset:24mm 0 24mm -30mm" data-label="Exterieurimpressie" data-hint="Hoofdbeeld fase C, uitlopend over de bladspiegel"></div>
+    <span class="folio">35</span>
+  </div>
+</section>
+
+<!-- ============ 36–37 INDELINGSPLATTEGRONDEN (appartementen) ============ -->
+<section class="spread">
+  <div class="note">Alleen bij appartementen — bij grondgebonden woningen vervangen door situatietekening met bouwnummers</div>
+  <div class="pg cremebg" style="align-items:center;text-align:center">
+    <h1 style="margin-top:16mm">Indelings-<br>plattegronden</h1>
+    <p style="font-size:8pt">Zoek uw type in het gebouw.</p>
+    <div style="width:100%;margin-top:8mm">
+      <h4 style="color:var(--rood)">Begane grond met bergingen</h4>
+      <div class="ph" style="aspect-ratio:16/7;margin-bottom:6mm" data-label="Plattegrond" data-hint="Begane grond incl. bergingen"></div>
+      <h4 style="color:var(--rood)">Verdieping 1</h4>
+      <div class="ph" style="aspect-ratio:16/7" data-label="Plattegrond" data-hint="Verdieping 1"></div>
+    </div>
+    <span class="folio">36</span>
+  </div>
+  <div class="pg rood" style="justify-content:space-between">
+    <div style="width:100%"><h4>Verdieping 2</h4><div class="ph dark" style="aspect-ratio:16/7" data-label="Plattegrond" data-hint="Verdieping 2"></div></div>
+    <div style="width:100%"><h4>Verdieping 3</h4><div class="ph dark" style="aspect-ratio:16/7" data-label="Plattegrond" data-hint="Verdieping 3"></div></div>
+    <div style="width:100%"><h4>Verdieping 4</h4><div class="ph dark" style="aspect-ratio:16/7" data-label="Plattegrond" data-hint="Verdieping 4"></div></div>
+    <span class="folio">37</span>
+  </div>
+</section>
+
+<!-- ============ TYPE-SPREADS — VARIANT APPARTEMENT ============ -->
+<section class="spread blauwbg">
+  <div class="note">Variant appartement · spread 1 van 2 — dupliceren per type</div>
+  <div class="pg" style="grid-column:1 / -1">
+    <h1 class="oranje" style="margin-left:26mm">Type <span class="fill">__</span></h1>
+    <div class="ph grow" data-label="Exterieurimpressie" data-hint="Gebouwbeeld met witte contour om het betreffende appartement — bijschrift: Exterieurimpressie bouwnummer __"></div>
+    <span class="folio" style="left:var(--pad)">38</span><span class="folio" style="right:var(--pad)">39</span>
+  </div>
+</section>
+
+<section class="spread"><div class="gutter"></div>
+  <div class="note">Variant appartement · spread 2 van 2</div>
+  <div class="pg cremebg">
+    <h1 class="oranje">Type <span class="fill">__</span></h1>
+    <h3 class="oranje" style="font-family:'Bodoni Moda';text-transform:none;letter-spacing:0;font-size:12pt">Bouwnummers <span class="fill">__, __, __</span></h3>
+    <h4 style="color:var(--rood);margin-top:6mm">Kenmerken</h4>
+    <ul class="kenmerken">
+      <li><span class="fill">[USP 1]</span></li>
+      <li><span class="fill">[USP 2]</span></li>
+      <li><span class="fill">[USP 3]</span></li>
+    </ul>
+    <table class="spec">
+      <tr><th>Oppervlakte GO</th><th style="text-align:right"><span class="fill">__ m²</span></th></tr>
+      <tr><td>Woonkamer/Keuken</td><td><span class="fill">__ m²</span></td></tr>
+      <tr><td>Slaapkamer 1</td><td><span class="fill">__ m²</span></td></tr>
+      <tr><td>Slaapkamer 2</td><td><span class="fill">__ m²</span></td></tr>
+      <tr><td>Badkamer</td><td><span class="fill">__ m²</span></td></tr>
+      <tr><td>Berging</td><td><span class="fill">__ m²</span></td></tr>
+      <tr><td>Berging bgg</td><td><span class="fill">__ m²</span></td></tr>
+      <tr><td>Balkon/Terras</td><td><span class="fill">__ m²</span></td></tr>
+      <tr><td>Parkeren</td><td><span class="fill">__</span></td></tr>
+    </table>
+    <h4>Ligging</h4>
+    <p style="font-size:8.4pt"><span class="fill">[Noord / Zuid / Oost / West]</span></p>
+    <div style="display:flex;gap:5mm;margin-top:auto">
+      <div class="ph" style="flex:1;aspect-ratio:3/4" data-label="Verdiepingsschema" data-hint="Type gemarkeerd"></div>
+      <div class="ph" style="flex:1;aspect-ratio:3/4" data-label="Verdiepingsschema" data-hint=""></div>
+      <div class="ph" style="flex:1;aspect-ratio:3/4" data-label="Verdiepingsschema" data-hint=""></div>
+    </div>
+    <span class="folio">40</span>
+  </div>
+  <div class="pg cremebg bleed">
+    <div class="ph inset" data-label="Verkoopplattegrond" data-hint="Appartement met meubelinrichting en maatvoering"></div>
+    <span class="folio">41</span>
+  </div>
+</section>
+
+<!-- ============ TYPE-SPREADS — VARIANT GRONDGEBONDEN ============ -->
+<section class="spread blauwbg">
+  <div class="note">Variant grondgebonden woning · spread 1 van 3 — dupliceren per type</div>
+  <div class="pg" style="grid-column:1 / -1">
+    <h1 class="oranje" style="margin-left:26mm">Type <span class="fill">__</span></h1>
+    <div class="ph grow" data-label="Exterieurimpressie" data-hint="Straatbeeld met de woning uitgelicht — bijschrift: Bouwnummer W__-__"></div>
+    <span class="folio" style="left:var(--pad)">42</span><span class="folio" style="right:var(--pad)">43</span>
+  </div>
+</section>
+
+<section class="spread"><div class="gutter"></div>
+  <div class="note">Variant grondgebonden woning · spread 2 van 3</div>
+  <div class="pg cremebg">
+    <h1 class="oranje">Type <span class="fill">__</span></h1>
+    <h3 class="oranje" style="font-family:'Bodoni Moda';text-transform:none;letter-spacing:0;font-size:12pt">Bouwnummers <span class="fill">W__-__, W__-__</span></h3>
+    <h4 style="color:var(--rood);margin-top:6mm">Kenmerken</h4>
+    <ul class="kenmerken">
+      <li><span class="fill">[USP 1]</span></li>
+      <li><span class="fill">[USP 2]</span></li>
+      <li><span class="fill">[USP 3]</span></li>
+    </ul>
+    <table class="spec">
+      <tr><th>Woonoppervlakte</th><th style="text-align:right"><span class="fill">__ m²</span></th></tr>
+      <tr><td>Perceeloppervlakte</td><td><span class="fill">__ m²</span></td></tr>
+      <tr><td>Woonkamer/Keuken</td><td><span class="fill">__ m²</span></td></tr>
+      <tr><td>Slaapkamers</td><td><span class="fill">__</span></td></tr>
+      <tr><td>Berging</td><td><span class="fill">__ m²</span></td></tr>
+      <tr><td>Tuin</td><td><span class="fill">__ m²</span></td></tr>
+      <tr><td>Parkeren</td><td><span class="fill">__</span></td></tr>
+    </table>
+    <h4>Ligging</h4>
+    <p style="font-size:8.4pt"><span class="fill">[Oriëntatie tuin]</span></p>
+    <div class="ph" style="margin-top:auto;aspect-ratio:3/2" data-label="Situatieschema" data-hint="Bouwnummer(s) gemarkeerd in de straat"></div>
+    <span class="folio">44</span>
+  </div>
+  <div class="pg cremebg">
+    <h4 style="color:var(--rood)">Begane grond</h4>
+    <div class="ph grow" data-label="Verkoopplattegrond" data-hint="Begane grond met meubelinrichting en maatvoering"></div>
+    <span class="folio">45</span>
+  </div>
+</section>
+
+<section class="spread"><div class="gutter"></div>
+  <div class="note">Variant grondgebonden woning · spread 3 van 3</div>
+  <div class="pg cremebg">
+    <h4 style="color:var(--rood)">1e verdieping</h4>
+    <div class="ph grow" data-label="Verkoopplattegrond" data-hint="1e verdieping"></div>
+    <span class="folio">46</span>
+  </div>
+  <div class="pg cremebg">
+    <h4 style="color:var(--rood)">2e verdieping</h4>
+    <div class="ph grow" data-label="Verkoopplattegrond" data-hint="2e verdieping"></div>
+    <span class="folio">47</span>
+  </div>
+</section>
+
+<!-- ============ PARKEREN EN BERGINGEN ============ -->
+<section class="spread"><div class="gutter"></div>
+  <div class="note">Alleen bij appartementen</div>
+  <div class="pg cremebg" style="justify-content:center;align-items:center;text-align:center">
+    <h1 style="text-align:center">Parkeren en bergingen</h1>
+    <p style="max-width:92mm"><b>Wonen in <span class="fill">[GEBOUWNAAM]</span> – fase C betekent comfort en gemak, ook als het gaat om parkeren en extra ruimte.</b></p>
+    <h4 style="color:var(--rood)">Exclusief parkeren</h4>
+    <p style="max-width:92mm">Direct naast het appartementengebouw bevinden zich <span class="fill">[AANTAL]</span> parkeerplaatsen voor de bewoners en hun gasten. Als bewoner beschikt u – via de VvE – standaard over uw eigen privéparkeerplaats, zodat u altijd verzekerd bent van een plek direct voor de deur. De overige <span class="fill">[AANTAL]</span> parkeerplaatsen kunnen vrij gebruikt worden door de bewoners en hun gasten. Tegenover dit gebruik staat slechts een beperkte jaarlijkse vergoeding via de VvE.</p>
+    <h4 style="color:var(--rood)">Bergingen</h4>
+    <p style="max-width:92mm">Op de begane grond van het gebouw vindt u de privé bergingen, die standaard zijn inbegrepen bij ieder appartement. Ideaal voor het stallen van fietsen, het opbergen van seizoensspullen of sportuitrusting. De bergingen zijn slim ingedeeld en variëren in oppervlakte van <span class="fill">__ m²</span> tot circa <span class="fill">__ m²</span>, afhankelijk van de grootte van het appartement. De nummering sluit overzichtelijk aan op de bouwnummers van de appartementen, zodat uw berging altijd eenvoudig te vinden is.</p>
+    <span class="folio">48</span>
+  </div>
+  <div class="pg rood" style="justify-content:space-around">
+    <div style="width:100%"><h4>Parkeerplaatsen</h4><div class="ph dark" style="aspect-ratio:4/3" data-label="Tekening" data-hint="Parkeerterrein met gemarkeerde plaatsen"></div></div>
+    <div style="width:100%"><h4>Bergingen</h4><div class="ph dark" style="aspect-ratio:16/9" data-label="Tekening" data-hint="Bergingenplattegrond met nummering"></div></div>
+    <span class="folio">49</span>
+  </div>
+</section>
+
+<!-- ============ DUURZAAM ============ -->
+<section class="spread"><div class="gutter"></div>
+  <div class="pg limebg" style="justify-content:center;align-items:center;text-align:center">
+    <div class="eyebrow">Duurzaam</div>
+    <h1 style="text-align:center">Energiezuinig en duurzaam</h1>
+    <p class="lead" style="max-width:100mm">De woningen in De Hoge Wei zijn energiezuinig en dus goed voor uw energierekening. U bent verzekerd van zaken als goede isolatie, dubbelglas en andere energiebesparende maatregelen. Deze maatregelen worden tegenwoordig automatisch doorgevoerd en staan vast in het Bouwbesluit.</p>
+    <p style="max-width:100mm"><span class="fill">[Toelichting installatieconcept fase C — bij fase B: waterwarmtepomp met bron voor warmte- en koudeopslag, geen buitenunit. Controleren of dit voor fase C gelijk is.]</span></p>
+    <span class="folio">50</span>
+  </div>
+  <div class="pg cremebg bleed">
+    <div class="ph" style="position:absolute;inset:26mm 0 26mm 0" data-label="Beeld" data-hint="Duurzaamheid — blad in handen o.i.d."></div>
+    <span class="folio">51</span>
+  </div>
+</section>
+
+<!-- ============ KEUKENS ============ -->
+<section class="spread"><div class="gutter"></div>
+  <div class="pg rood" style="justify-content:center;align-items:center;text-align:center">
+    <div class="eyebrow" style="color:var(--oranje)">Keukens</div>
+    <h1 style="text-align:center;color:var(--oranje)">Creëer uw persoonlijke droomkeuken</h1>
+    <p class="lead" style="max-width:100mm">De geur van versgebakken appeltaart, een overheerlijke lasagne uit de oven of een oer-Hollandse stamppot. Voor de één hoort koken er gewoon bij, voor de ander is het een ware passie. Maar nergens kook je zo lekker als in een gloednieuwe droomkeuken.</p>
+    <p style="max-width:100mm">De <span class="fill">[appartementen / woningen]</span> in De Hoge Wei zijn niet voorzien van een keukeninrichting. Er worden wel voorzieningen voor uw keuken aangebracht zoals op de verkooptekeningen staat aangegeven. De basiskeukens hebben een functionele indeling, passend bij het ontwerp van het betreffende woningtype.</p>
+    <p style="max-width:100mm">De keukens die in de basis zijn ontworpen door <span class="fill">[LEVERANCIER]</span> zijn geheel compleet met aansluitingen voor een combimagnetron, vaatwasser, koelkast, afzuigkap en inductiekookplaat. In deze basis zijn ook diverse kleurvarianten mogelijk. Omdat wij u alle keuzevrijheid willen geven nodigen we u uit om bij de projectleverancier de perfecte keuken samen te stellen.</p>
+    <span class="folio">52</span>
+  </div>
+  <div class="pg rood bleed" style="display:grid;grid-template-rows:1fr 1fr;gap:4mm;padding:10mm 0">
+    <div class="ph dark" style="border-radius:0" data-label="Interieurimpressie" data-hint="Keuken"></div>
+    <div class="ph dark" style="border-radius:0" data-label="Sfeerbeeld" data-hint="Kokend persoon"></div>
+    <span class="folio">53</span>
+  </div>
+</section>
+
+<!-- ============ SANITAIR ============ -->
+<section class="spread"><div class="gutter"></div>
+  <div class="pg cremebg">
+    <div class="quote" style="color:var(--blauw);font-size:20pt;margin:0">Sanitair</div>
+    <h1 style="color:var(--blauw)">Geniet van uw relaxmomentje</h1>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm;flex:1;margin-top:6mm">
+      <div class="ph" data-label="Beeld" data-hint="Badkamerdetail / product"></div>
+      <div class="ph" data-label="Beeld" data-hint="Sfeerbeeld badkamer"></div>
+    </div>
+    <span class="folio">54</span>
+  </div>
+  <div class="pg cremebg" style="justify-content:center">
+    <p class="lead">Lekker ontspannen na een lange dag of fris wakker worden? In de luxe badkamer is het elke dag weer genieten. Wij zorgen voor een heel comfortabele basis en u kunt het pakket naar uw wens uitbreiden. De badkamer en het toilet zijn standaard voorzien van luxe tegelwerk in diverse kleurstellingen en het sanitair is compleet met een wastafelmeubel.</p>
+    <p>Er is de keuze uit 3 soorten pakketten, type Comfort, Luxe en Excellent. Pakket Comfort is in de basis voorzien. Pakket Luxe en Excellent zijn meerwerkopties. De coördinatie tussen leverancier, installateur en aannemer wordt volledig intern verzorgd, met een minimum aan afstemmingsproblemen. U maakt uw keuze bij Bouwbedrijf J.G. Timmer op locatie in Kesteren, wel zo gemakkelijk.</p>
+    <p>Standaard is de badkamer voorzien van een inloopdouche met een glazen douchewand en een luxe douchevloer van mineraalcomposiet, sanitair en een modern wastafelmeubel met een luxe uitstraling. In de basisopstellingen zijn er verschillende kleurkeuzes voor zowel vloer- als wandtegels, ook in de afwerking. Daarnaast zijn er meerdere varianten voor het wastafelmeubel.</p>
+    <span class="folio">55</span>
+  </div>
+</section>
+
+<!-- ============ DE BONGERD ============ -->
+<section class="spread rood"><div class="gutter"></div>
+  <div class="pg">
+    <div class="eyebrow" style="color:var(--oranje)">Welkom bij De Bongerd</div>
+    <h1 style="color:var(--oranje)">Exclusieve kortingscheques voor bewoners van De Hoge Wei!</h1>
+    <p class="lead">‘A good home must be made, not bought!’ Maar hoe doet u dat? Van uw nieuwe huis ook daadwerkelijk uw thuis maken? Want nog voordat u de sleutels van uw nieuwe woning in handen krijgt moeten er al heel wat keuzes gemaakt worden. Ons advies is om daar op tijd mee te beginnen.</p>
+    <p>Krijgt u bij het idee alleen al keuzestress? Dan kan de hulp van iemand met kennis van zaken je daarbij enorm helpen. Daarom hebben wij als Meubelpark De Bongerd een aantal leuke acties voor u als nieuwe bewoners van De Hoge Wei.</p>
+    <p>Wij denken graag met u mee! Van de zoektocht naar de juiste bank of eettafel tot aan de juiste sfeer door middel van uw nieuwe stoffering. Komt u eens langs?</p>
+    <span class="folio">56</span>
+  </div>
+  <div class="pg" style="display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:5mm">
+    <div class="ph dark" style="grid-column:1 / -1" data-label="Beeld" data-hint="Interieur De Bongerd"></div>
+    <div class="ph dark" data-label="Beeld" data-hint="Interieur"></div>
+    <div class="perzikbg" style="padding:6mm;color:var(--rood)">
+      <h3 style="color:var(--rood)">Cheques</h3>
+      <p style="font-size:7.5pt;max-width:none">Bij aankoop van meubels of stoffering bij De Bongerd ontvangt u van ons de volgende cheques:</p>
+      <div class="hr"></div>
+      <p style="font-size:9pt;font-weight:600;margin:0">€ <span class="fill">795,-</span></p>
+      <p style="font-size:7pt;max-width:none">* voor een 3D tekening van uw nieuwe woning</p>
+      <div class="hr"></div>
+      <p style="font-size:9pt;font-weight:600;margin:0">€ <span class="fill">250,-</span></p>
+      <p style="font-size:7pt;max-width:none">* voor aankoop van een eethoek</p>
+      <div class="hr"></div>
+      <p style="font-size:7pt;max-width:none"><b>Meubelpark De Bongerd</b><br>Batterijenweg 19, 4041 DA Kesteren<br>T. 0488 – 488 855<br>I. www.debongerd.nl</p>
+    </div>
+    <span class="folio">57</span>
+  </div>
+</section>
+
+<!-- ============ COLOFON ============ -->
+<section class="spread"><div class="gutter"></div>
+  <div class="pg cremebg">
+    <div class="eyebrow" style="text-align:center">Contactinformatie</div>
+    <h1 style="text-align:center">Verkoop en informatie</h1>
+    <h3 style="text-align:center;margin-top:6mm">Makelaars:</h3>
+    <div class="logos">
+      <div class="ph" data-label="Logo" data-hint=""></div>
+      <div class="ph" data-label="Logo" data-hint=""></div>
+      <div class="ph" data-label="Logo" data-hint=""></div>
+    </div>
+    <div class="contact" style="margin-bottom:6mm">
+      <div><b>Joop van Mourik makelaars</b>Swaenenstate 3<br>4043 KE Opheusden<br>0488 – 44 29 06<br>info@joopvanmourik.nl</div>
+      <div><b>Karens Makelaars</b>Burgemeester Lodderstraat 36<br>4043 KM Opheusden<br>0488 – 44 35 11<br>info@karens.nl</div>
+      <div><b>Rozeboom Makelaardij</b>Kierkamperweg 15<br>6721 TE Bennekom<br>0318 – 41 40 51<br>info@rozeboom.nl</div>
+    </div>
+    <div class="hr"></div>
+    <h3 style="text-align:center">Ontwikkeling van:</h3>
+    <div class="logos"><div class="ph" data-label="Logo" data-hint="AH Projectontwikkeling"></div><div class="ph" data-label="Logo" data-hint="JG Timmer"></div></div>
+    <div class="hr"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr">
+      <div><h3 style="text-align:center">Uitvoering infra:</h3><div class="logos"><div class="ph" style="width:34mm" data-label="Logo" data-hint=""></div></div></div>
+      <div><h3 style="text-align:center">Uitvoering bouw:</h3><div class="logos"><div class="ph" style="width:34mm" data-label="Logo" data-hint=""></div></div></div>
+    </div>
+    <div style="margin-top:auto">
+      <h4 style="color:var(--rood)">Disclaimer</h4>
+      <p class="disclaimer">Alhoewel deze brochure met grote zorg is samengesteld en er redelijkerwijs alles in het werk is gesteld door JG Timmer en AH Projectontwikkeling om er voor te zorgen dat de informatie actueel en accuraat is, is het toch mogelijk dat de brochure onjuistheden of typefouten bevat. Ook is er de mogelijkheid van wijzigingen of veranderingen van overheidswege ten aanzien van deze informatie. JG Timmer en AH Projectontwikkeling geven geen garanties over de juistheid en volledigheid van de in de brochure opgenomen informatie. De technische uitvoering van de woningen kan gewijzigd worden voor zover dit geen invloed heeft op het gebruiksgemak, de kwaliteit of de reeds gekozen materialen. Verder aanvaarden JG Timmer en AH Projectontwikkeling geen enkele aansprakelijkheid, verplichting of verantwoordelijkheid voor eventuele foutieve of onvolledige informatie in deze brochure. Het beeldmateriaal, waaronder de perspectieftekeningen, in deze brochure is slechts bedoeld om u een indruk te geven van de woningen. Het zijn geen bindende tekeningen en foto’s. Aan het beeldmateriaal kunnen dan ook geen rechten worden ontleend. Alle wijzigingen in tekst, illustraties en tekeningen zijn voorbehouden aan JG Timmer en AH Projectontwikkeling. De opgenomen perspectieftekeningen en uitgewerkte indelingssuggesties geven een impressie weer, de kleurstelling en kleine wijzigingen aan de woningen worden veelal in een later stadium tijdens de bouw door de architect ingevuld. Derhalve kunnen aan deze tekeningen geen rechten worden ontleend. Het eigendomsrecht van namen, afbeeldingen, logo’s en foto’s berusten bij JG Timmer en AH Projectontwikkeling.<br><br>Realisatie brochure: <span class="fill">[Spring Marketing Agency]</span></p>
+    </div>
+    <span class="folio">58</span>
+  </div>
+  <div class="pg perzikbg bleed">
+    <div class="ph full" data-label="Illustratie" data-hint="Botanische fruit-illustratie — bestaand merkmateriaal"></div>
+    <span class="folio">59</span>
+  </div>
+</section>
+
+<!-- ============ ACHTERKANT ============ -->
+<section class="single rood">
+  <div class="pg" style="justify-content:center;align-items:center;text-align:center">
+    <div class="logo" style="margin-top:auto;margin-bottom:auto"><em>De</em>Hoge<br>Wei</div>
+    <div style="margin-bottom:16mm">
+      <div class="eyebrow" style="color:var(--oranje);margin-bottom:4mm">Meer informatie?</div>
+      <span class="pill">dehogewei.nl</span>
+    </div>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
