@@ -6,9 +6,14 @@
   "type": "module",
   "scripts": {
     "pdf": "node build/pdf.mjs",
-    "serve": "npx --yes http-server . -p 8080 -c-1"
+    "serve": "npx --yes http-server . -p 8080 -c-1",
+    "pdf:los": "node build/pdf-losse-paginas.mjs"
   },
   "devDependencies": {
-    "playwright": "^1.49.0"
+    "playwright": "^1.49.0",
+    "pdf-lib": "^1.17.1"
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1"
   }
 }

@@ -48,10 +48,17 @@ Uploaden kan in GitHub via **Add file → Upload files** in de betreffende map.
 ## Bekijken en exporteren
 
 ```bash
-npm install          # eenmalig
-npm run pdf          # -> export/de-hoge-wei-fase-c.pdf (met placeholders)
-npm run pdf -- --clean   # zonder placeholder-arcering
+npm install               # eenmalig
+npm run pdf               # -> export/de-hoge-wei-fase-c.pdf — spreads, 31 vellen
+npm run pdf:los           # -> export/de-hoge-wei-fase-c-losse-paginas.pdf — 60 losse pagina's
+npm run pdf -- --clean    # zonder placeholder-arcering (werkt ook op pdf:los)
 ```
+
+**Welke van de twee?** De spread-export toont de brochure zoals je hem
+openslaat en is het formaat voor de drukker en de designer. De losse-pagina's
+export snijdt elk vel doormidden tot pagina's van 240 × 330 mm; gebruik die
+voor Canva en andere tools die elke pagina apart willen inlezen. Beeld dat
+over de bladspiegel heen loopt wordt netjes over twee pagina's verdeeld.
 
 Of open `index.html` in de browser. De balk bovenin heeft knoppen om de
 placeholders te dimmen, om direct naar PDF te printen, en een zoomregeling —
