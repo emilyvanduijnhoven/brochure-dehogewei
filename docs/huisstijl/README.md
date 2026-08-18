@@ -1,7 +1,7 @@
-# Kleuren en fonts — huidige stand in de template
+# Huisstijl De Hoge Wei
 
-Dit is wat er **nu** in `index.html` zit. Zodra de officiële waarden er zijn,
-vervangen we deze en zetten we de template erop om.
+Upload hier het huisstijlhandboek en alles wat de designer nodig heeft om de
+brochure exact na te bouwen in InDesign.
 
 ## Wat er nu in de template zit (afgeleid van fase A & B)
 
@@ -17,7 +17,7 @@ vervangen we deze en zetten we de template erop om.
 
 **Let op:** dit zijn RGB-waarden die uit de bestaande brochures zijn afgeleid.
 Voor drukwerk zijn de officiële CMYK- of Pantone-waarden nodig — die horen in
-het huisstijlhandboek. Zet ze in `brandguide/kleuren/` zodra je ze hebt.
+het huisstijlhandboek. Zet ze hier neer zodra je ze hebt.
 
 ## Fonts in de template
 
@@ -27,5 +27,5 @@ het huisstijlhandboek. Zet ze in `brandguide/kleuren/` zodra je ze hebt.
 | Broodtekst, labels | Jost | Google Fonts |
 | Handgeschreven quotes | Pinyon Script | Google Fonts |
 
-Staan de echte merkfonts vast? Upload ze in `assets/fonts/` (webfont + otf/ttf)
-en de richtlijnen in `brandguide/typografie/`, en geef het door.
+Staan de echte merkfonts vast? Upload ze in `assets/fonts/` en geef het door,
+dan wordt de template erop omgezet.
