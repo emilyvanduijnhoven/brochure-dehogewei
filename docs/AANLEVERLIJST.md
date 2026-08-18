@@ -96,9 +96,14 @@ Pagina 59: botanische fruit-illustratie, uit het bestaande merkmateriaal.
 
 ## Naast beeld
 
-- **71 tekstvelden** — oppervlaktes per type, aantallen, drie interviewteksten,
-  USP's, de wervende introtekst van fase C, de keukenleverancier, en vier
-  paginanummers in de inhoudsopgave.
+- **59 tekstvelden** — oppervlaktes per type, aantallen, USP's, de wervende
+  introtekst van fase C, de keukenleverancier, en vier paginanummers in de
+  inhoudsopgave.
+- **De vier interviews** (Hans Reijersen van Buuren p. 25, Anton Mauritz p. 28,
+  Jan Timmer p. 31, Jonathan ten Bolscher p. 32) staan nu vol **blindtekst**,
+  zodat de spreads leesbaar zijn. Die tekst is verzonnen en mag niet gepubliceerd
+  worden — de werkelijke interviews komen uit de brochures van fase A en B.
+  Onder elk interview staat een regel die dat markeert.
 - **CMYK-/Pantone-waarden** — de template gebruikt RGB afgeleid uit fase A/B.
 - **Brochures fase A en B** als PDF in `docs/referentie/`.
 - **Drukwerkspecificaties** — afloop (nu 0, advies 3 mm), papier, bindwijze,
